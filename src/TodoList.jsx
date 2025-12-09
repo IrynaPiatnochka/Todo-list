@@ -1,19 +1,14 @@
-const todos = [
-  {id: 1, title: "Review Theoretical Material"},
-  {id: 2, title: "Set Up the Project"},
-  {id: 3, title: "Write the Code"},
-  {id: 4, title: "Debug the Code"},
-]
+import TodoListItem from "./TodoListItem";
 
-function TodoList(){
+function TodoList({todos}) {
     return (
         <ul>
-            {todos.map(todo => (
-                <li key={todo.id}> {todo.title}</li>
+            {todos.map((todo) => (
+                <TodoListItem key={todo.id} todo={todo}/>
             ))}
         </ul>
-    )
+    );
 }
 
-export default TodoList
+export default TodoList;
 
