@@ -1,0 +1,45 @@
+body {
+  margin: 1;
+  background-color: #c8daf6;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+h1 {
+  font-family: 'Montserrat'; 
+  text-decoration: underline;     
+  margin-bottom: 1 rem;            
+}
+
+p,
+label,
+input,
+button {
+  font-family: Arial, sans-serif;
+}
+
+button {
+  all:unset;
+  padding: 0.4rem 0.8rem;
+  margin-top: 0.5rem 0;
+  border-radius: 4px;
+  border: 1px solid;
+  background-color: white;
+}
+
+button:hover {
+  background-color: #eff6ff;
+}
+
+input {
+  padding: 0.3rem;
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+}

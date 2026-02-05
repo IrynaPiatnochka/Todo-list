@@ -3,6 +3,8 @@ import TodoList from './features/TodoList/TodoList.jsx';
 import TodoForm from './features/TodoForm.jsx';
 import TodosViewForm from "./features/TodosViewForm";
 import './App.css';
+import styles from './App.module.css';
+import bgImage from "./assets/todo-image.png";
 
 const url = `https://api.airtable.com/v0/${import.meta.env.VITE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
 const token = `Bearer ${import.meta.env.VITE_PAT}`;
@@ -183,37 +185,42 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>My Todos</h1>
+    <div 
+      className={styles.app}
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className={styles.container}>
 
-      <TodoForm onAddTodo={addTodo} />
+        <h1>My Todos</h1>
 
-      <TodoList
-        todoList={todoList}
-        isLoading={isLoading}
-        onCompleteTodo={completeTodo}
-        onUpdateTodo={updateTodo}
-      />
+        <TodoForm onAddTodo={addTodo} />
 
-      <hr />
+        <TodoList
+          todoList={todoList}
+          isLoading={isLoading}
+          onCompleteTodo={completeTodo}
+          onUpdateTodo={updateTodo}
+        />
 
-      {errorMessage && (
-        <div>
-          <hr />
-          <p style={{ color: "red" }}>{errorMessage}</p>
-          <button onClick={() => setErrorMessage("")}>Dismiss</button>
-        </div>
-      )}
+        <hr />
 
-      <TodosViewForm
-        sortField={sortField}
-        setSortField={setSortField}
-        sortDirection={sortDirection}
-        setSortDirection={setSortDirection}
-        queryString={queryString}
-        setQueryString={setQueryString}
-      />
+        {errorMessage && (
+          <div className={styles.errorBox}>
+            <hr />
+            <p className="error">{errorMessage}</p>
+            <button onClick={() => setErrorMessage("")}>Dismiss</button>
+          </div>
+        )}
 
+        <TodosViewForm
+          sortField={sortField}
+          setSortField={setSortField}
+          sortDirection={sortDirection}
+          setSortDirection={setSortDirection}
+          queryString={queryString}
+          setQueryString={setQueryString}
+        />
+      </div>
     </div>
   );
 }
