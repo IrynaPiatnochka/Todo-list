@@ -29,3 +29,10 @@
   border: 1px solid red;
   padding: 0.5rem;
 }
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
